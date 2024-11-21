@@ -140,7 +140,7 @@ def unet_segmentation():
 
         # Встраиваем TensorBoard в iframe
         st.write(f"Вы можете увидеть TensorBoard здесь:")
-        st.components.v1.iframe(tensorboard_url, width=800, height=600)
+        st.components.v1.iframe(tensorboard_url, width=1500, height=1500)
     else:
         st.write("Папка с логами не найдена. Убедитесь, что указали правильный путь.")
                 
