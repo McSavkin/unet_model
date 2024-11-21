@@ -6,3 +6,4 @@ requests
 tensorboard
 numpy
 opencv-python-headless
+ultralytics
