@@ -8,6 +8,7 @@ import numpy as np
 from unet import UNet  # класс модели Unet
 from tensorboard import program
 import os
+import cv2
 
 def unet_segmentation():
 
