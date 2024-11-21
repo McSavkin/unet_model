@@ -122,7 +122,7 @@ def unet_segmentation():
     def run_tensorboard(logdir):
     # Запуск TensorBoard в фоновом процессе
         tb = program.TensorBoard()
-        tb.configure(argv=["--logdir", "runs", "--host", "0.0.0.0", "--port", "6051"])
+        tb.configure(argv=["--logdir", "runs", "--host", "0.0.0.0", "--port", "6006"])
         url = tb.launch()
         return url
 
