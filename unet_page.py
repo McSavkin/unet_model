@@ -14,7 +14,7 @@ def unet_segmentation():
     # Загрузка модели Unet
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model_unet = UNet(n_class=1).to(device)
-    model_unet.load_state_dict(torch.load('model_weights.pth'))
+    model_unet.load_state_dict(torch.load('model_weights.pth', map_location=device))
     model_unet.eval()  # Устанавливаем модель в режим оценки
 
     # Функция для получения предсказания
