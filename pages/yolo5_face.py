@@ -4,9 +4,12 @@ import cv2
 import numpy as np
 import torch
 
-# Загружаем YOLOv5 модель
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt')  # Замените на ваш путь
-model.conf = 0.7  # Уровень уверенности для фильтрации предсказаний
+def load_model():
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt')  # Путь к вашей модели
+    model.conf = 0.7  # Уровень уверенности для фильтрации предсказаний
+    return model
+
+model = load_model()
 
 # Приём файлов от пользователя
 uploaded_files = st.file_uploader(

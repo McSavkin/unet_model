@@ -5,7 +5,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 import numpy as np
-from unet import UNet  # класс модели Unet
+from models.unet import UNet  # класс модели Unet
 from tensorboard import program
 import os
 
@@ -24,7 +24,7 @@ def load_model():
 
 # Функция для предсказания сегментации
 @st.cache_data
-def predict_image(model, image, device):
+def predict_image(_model, image, device):
     # Загружаем изображение
     image = Image.open(image).convert("RGB")
     
@@ -39,9 +39,9 @@ def predict_image(model, image, device):
     image_tensor = transform(image).unsqueeze(0).to(device)  # Добавляем размерность для батча (1, C, H, W)
 
     # Получаем предсказание
-    model.eval()  # Переводим модель в режим оценки
+    _model.eval()  # Переводим модель в режим оценки
     with torch.no_grad():  # Без расчета градиентов
-        output = model(image_tensor)  # Предсказание модели
+        output = _model(image_tensor)  # Предсказание модели
     
     # Применение сигмоида (для бинарной сегментации)
     output = torch.sigmoid(output)  # Если выход модели был без активации, используем сигмоиду для нормализации

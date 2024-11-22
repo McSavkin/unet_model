@@ -95,3 +95,6 @@ class UNet(nn.Module):
         out = self.outconv(xd42)
         out = self.sigmoid(out)  # Применяем сигмоиду для бинарной сегментации
         return out
+
+
+
