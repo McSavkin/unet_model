@@ -18,12 +18,11 @@ def load_model():
         # Проверка на доступность GPU
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model_unet = UNet(n_class=1).to(device)
-        model_unet.load_state_dict(torch.load('models/model_weights.pth', map_location=device))
+        model_unet.load_state_dict(torch.load('models/model_weights.pth', map_location=device, weights_only=True))
         model_unet.eval()  # Устанавливаем модель в режим оценки
     return model_unet
 
 # Функция для предсказания сегментации
-@st.cache_data
 def predict_image(_model, image, device):
     # Загружаем изображение
     image = Image.open(image).convert("RGB")
