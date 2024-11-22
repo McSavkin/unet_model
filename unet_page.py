@@ -1,5 +1,5 @@
 import os
-from unet import UNet  # класс модели Unet
+from models.unet import UNet  # класс модели Unet
 import streamlit as st
 import torch
 from torchvision import transforms
@@ -8,7 +8,7 @@ import requests
 from io import BytesIO
 import numpy as np
 import sys
-sys.path.append('./models')  # Убедитесь, что Streamlit видит папку models
+# sys.path.append('./models')  # Убедитесь, что Streamlit видит папку models
 
 # Глобальная переменная для модели
 model_unet = None
