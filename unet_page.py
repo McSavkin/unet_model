@@ -5,7 +5,9 @@ from PIL import Image
 import requests
 from io import BytesIO
 import numpy as np
-from models.unet import UNet  # класс модели Unet
+import sys
+sys.path.append('./models')  # Убедитесь, что Streamlit видит папку models
+from unet import UNet  # класс модели Unet
 from tensorboard import program
 import os
 
